@@ -1,0 +1,607 @@
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>AJAX &amp; Side Effects in practice · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="As you can see, there&#39;s not much going on now. We can just see the loading spinner, and nothing happens if we click on the button. Ideally we&#39;d like our ap">
+        <meta name="generator" content="GitBook 3.0.0-pre.5">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="unit-tests.html" />
+    
+    
+    <link rel="prev" href="rendering-view.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book"
+    data-level="2.3"
+    data-chapter-title="AJAX &amp; Side Effects in practice"
+    data-filepath="gif-viewer/side-effects.md"
+    data-basepath="../../docs"
+    data-revision="Mon May 02 2016 10:43:52 GMT+0200 (CEST)"
+    data-innerlanguage="">
+    
+
+<div class="book-summary">
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+
+            
+
+
+            
+            
+    
+        <li class="chapter " data-level="0" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Why the Elm Architecture matters?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Getting Started Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="../getting-started/necessary-boilerplate.html">
+            
+                <a href="../getting-started/necessary-boilerplate.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Necessary boilerplate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../getting-started/hello-world.html">
+            
+                <a href="../getting-started/hello-world.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Hello World!
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>2.</b>
+                    
+                    GifViewer tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="shaping-model.html">
+            
+                <a href="shaping-model.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    Shaping out initial Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="rendering-view.html">
+            
+                <a href="rendering-view.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Rendering View
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="side-effects.html">
+            
+                <a href="side-effects.html">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    AJAX &amp; Side Effects in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="unit-tests.html">
+            
+                <a href="unit-tests.html">
+            
+                    
+                        <b>2.4.</b>
+                    
+                    Writing Unit Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="../composition/">
+            
+                <a href="../composition/">
+            
+                    
+                        <b>3.</b>
+                    
+                    Composition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="../composition/action-composition.html">
+            
+                <a href="../composition/action-composition.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    Action Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../composition/example/">
+            
+                <a href="../composition/example/">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    Real Composition Example
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../composition/example/updater-composition.html">
+            
+                <a href="../composition/example/updater-composition.html">
+            
+                    
+                        <b>3.2.1.</b>
+                    
+                    Updater Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../composition/example/action-composition-practice.html">
+            
+                <a href="../composition/example/action-composition-practice.html">
+            
+                    
+                        <b>3.2.2.</b>
+                    
+                    Action Composition in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../composition/example/matchers.html">
+            
+                <a href="../composition/example/matchers.html">
+            
+                    
+                        <b>3.2.3.</b>
+                    
+                    Introduction Matchers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="../composition/example/utilizing-matchers.html">
+            
+                <a href="../composition/example/utilizing-matchers.html">
+            
+                    
+                        <b>3.2.4.</b>
+                    
+                    Utilizing Matchers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="../composition/example/public-interface.html">
+            
+                <a href="../composition/example/public-interface.html">
+            
+                    
+                        <b>3.2.5.</b>
+                    
+                    Using public interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../composition/dynamic-list/">
+            
+                <a href="../composition/dynamic-list/">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    Dynamic List of Components
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../composition/dynamic-list/updater-parameterized-matcher.html">
+            
+                <a href="../composition/dynamic-list/updater-parameterized-matcher.html">
+            
+                    
+                        <b>3.3.1.</b>
+                    
+                    Updater with ParmeterizedMatcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="../custom-matchers/">
+            
+                <a href="../custom-matchers/">
+            
+                    
+                        <b>4.</b>
+                    
+                    Custom Matchers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="../custom-matchers/writing-custom-matcher.html">
+            
+                <a href="../custom-matchers/writing-custom-matcher.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    Writing Custom Matcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="../static-typing/">
+            
+                <a href="../static-typing/">
+            
+                    
+                        <b>5.</b>
+                    
+                    Static Typing - FlowType
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../docs" >AJAX &amp; Side Effects in practice</a>
+    </h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h2 id="side-effects-in-practice">Side Effects in Practice</h2>
+<p>As you can see, there&apos;s not much going on now. We can just see the loading spinner, and nothing happens if we click on the button. Ideally we&apos;d like our application to initiate loading of the GIF in the <code>init</code> generator function, but how? This is exactly where Side Effects comes into play.</p>
+<p>First of all, we need to define an Effect that triggers the API call. Let&apos;s create a new file within the <code>gif-viewer</code> directory and call it <code>effects.js</code>. This file will contain a single function called <code>fetchGif</code>:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> request <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;superagent-bluebird-promise&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> fetchGif = (dispatch, topic) =&gt; {
+  request(<span class="hljs-string">`http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&amp;tag=<span class="hljs-subst">${topic}</span>`</span>)
+    .then(response =&gt; dispatch({ type: <span class="hljs-string">&apos;NewGif&apos;</span>, url: response.body.data.image_url }));
+};
+</code></pre>
+<p>We will be using <code>superagent-bluebird-promise</code>, which needs to be installed with its peer dependencies by running the following command:</p>
+<pre><code>npm install --save bluebird superagent superagent-bluebird-promise
+</code></pre><p>Every Effect function takes <code>dispatch</code> as its first argument and an infinite number of optional arguments which are specific to the Effect. Our <code>fetchGif</code> function takes <code>dispatch</code> and <code>topic</code> as arguments. Inside the function we just need to trigger the XHR request (we&apos;re using the <a href="https://www.npmjs.com/package/superagent-bluebird-promise" target="_blank">Superagent library</a> in this example). Because we have the <code>dispatch</code> function available, we can dispatch a new Action when the API response arrives, providing it with a <code>url</code> parameter extracted from the API response. The function is now ready to be yielded from our <code>init</code> function.</p>
+<p>Let&apos;s open <code>updater.js</code> again and make a slight modification to our <code>init</code> function:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { sideEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-side-effects&apos;</span>;
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> Effects <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./effects&apos;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params">topic</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>*(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">yield</span> sideEffect(Effects.fetchGif, topic);
+
+    <span class="hljs-keyword">return</span> {
+      topic,
+      gifUrl: <span class="hljs-literal">null</span>
+    };
+  };
+};
+</code></pre>
+<p>We are utilizing the full power of Generators here, yielding a <code>fetchGif</code> Side Effect in our <code>init</code> function. Yielding Side Effects is as easy as yielding an Effect wrapped in the <code>sideEffect</code> function exposed by the <code>redux-side-effects</code> library. Since a declarative approach for Effects, unit testing is a breeze.</p>
+<p>We can declare any Side Effect by calling the following function:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">yield</span> sideEffect(effectFunction, arg1, arg2, arg3....);
+</code></pre>
+<p><code>redux-side-effects</code> will automatically take care of Effect execution while passing in <code>dispatch</code> and any additional arguments. In other words, it will call <code>effectFunction</code> with the arguments <code>dispatch</code>, <code>arg1</code>, <code>arg2</code>, <code>arg3</code>, etc.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> effectFunction = (dispatch, arg1, arg2, arg3) =&gt; {
+  <span class="hljs-comment">// Side Effect implementation</span>
+}
+</code></pre>
+<p>Even though the API is being called now, we still can&apos;t see anything in the UI because we are not handling the <code>NewGif</code> Action in the Updater. We need to update the Model with the appropriate <code>gifUrl</code> when the <code>NewGif</code> Action is dispatched so that the View is re-rendered with the newly fetched GIF:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Updater(init(<span class="hljs-string">&apos;funny cats&apos;</span>), Matchers.exactMatcher)
+  .case(<span class="hljs-string">&apos;NewGif&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>*(<span class="hljs-params">model, action</span>) </span>{
+    <span class="hljs-keyword">return</span> {
+      ...model,
+      gifUrl: action.url
+    };
+  })
+  .toReducer();
+</code></pre>
+<p>In the <code>fetchGif</code> Effect we dispatch the <code>NewGif</code> Action with the <code>url</code> of the GIF. We just need to handle this Action in Updater and mutate the Model appropriately. In this case, this means that we change the <code>gifUrl</code> field of the model to <code>action.url</code>. Now you should be able to see a GIF after refreshing the application:</p>
+<p><img src="../assets/6.png" alt="gif-viewer-2"></p>
+<p>The last mandatory requirement for our GifViewer is that when the user clicks the &quot;More Please!&quot; button, it should fetch a new GIF. Currently, however, nothing happens when the button is clicked. To add this functionality, we just need to define what should happen when <code>RequestMore</code> is dispatched. <code>RequestMore</code> is an Action that is dispatched when the button is clicked.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Updater(init(<span class="hljs-string">&apos;funny cats&apos;</span>), Matchers.exactMatcher)
+  .case(<span class="hljs-string">&apos;NewGif&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>*(<span class="hljs-params">model, action</span>) </span>{
+    <span class="hljs-keyword">return</span> {
+      ...model,
+      gifUrl: action.url
+    };
+  })
+  .case(<span class="hljs-string">&apos;RequestMore&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>*(<span class="hljs-params">model, action</span>) </span>{
+    <span class="hljs-keyword">yield</span> sideEffect(Effects.fetchGif, model.topic);
+
+    <span class="hljs-keyword">return</span> {
+      ...model,
+      gifUrl: <span class="hljs-literal">null</span>
+    };
+  })
+  .toReducer();
+</code></pre>
+<p>We can re-use the <code>fetchGif</code> Effect that we have already implemented. The topic is retrieved from the Model, we again set <code>gifUrl</code> to <code>null</code> so that the loading indicator is displayed in the UI. The application is now fully implemented.</p>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="rendering-view.html" class="navigation navigation-prev " aria-label="Previous page: Rendering View">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="unit-tests.html" class="navigation navigation-next " aria-label="Next page: Writing Unit Tests">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="../gitbook/app.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}}});
+    });
+    </script>
+
+    </body>
+</html>
