@@ -1,7 +1,10 @@
 import React from 'react';
-import { forwardTo } from 'redux-elm';
+import { defaultMemoize } from 'reselect/lib/';
+import { createMemoizedForwardTo } from '../memoizedForwardTo';
 
 import GifViewer from '../random-gif-viewer/view';
+
+const forwardToGifViewer = createMemoizedForwardTo('GifViewer');
 
 const inputStyle = {
   width: '100%',
@@ -21,7 +24,7 @@ export default ({ model, dispatch }) => (
       style={inputStyle} />
     <div style={{display: 'flex', flexWrap: 'wrap'}}>
       {model.gifViewers.map((gifViewerModel, index) =>
-        <GifViewer key={index} model={gifViewerModel} dispatch={forwardTo(dispatch, 'GifViewer', index)} />)}
+        <GifViewer key={index} model={gifViewerModel} dispatch={forwardToGifViewer(dispatch, index)} />)}
     </div>
   </div>
 );

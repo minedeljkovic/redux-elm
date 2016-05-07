@@ -1,4 +1,5 @@
 import React from 'react';
+import pure from 'recompose/pure';
 
 const renderGif = url => {
   if (url) {
@@ -8,10 +9,10 @@ const renderGif = url => {
   }
 }
 
-export default ({ model, dispatch }) => (
+export default pure(({ model, dispatch }) => console.log(`Rerendered: ${model.topic}`) || (
   <div style={{ width: '200px' }}>
     <h2 style={{ width: '200px', textAlign: 'center' }}>{model.topic}</h2>
     {renderGif(model.gifUrl)}
     <button onClick={() => dispatch({ type: 'RequestMore' })}>More Please!</button>
   </div>
-);
+));
