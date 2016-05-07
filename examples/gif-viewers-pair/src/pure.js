@@ -1,8 +1,10 @@
-import React, {Component} from 'react';
-import shallowEqual from 'fbjs/lib/shallowEqual';
+import {Component} from 'react';
+import shallowEqual from 'recompose/shallowEqual';
+import createElement from 'recompose/createElement';
+import getDisplayName from 'recompose/getDisplayName';
 
 export default function(BaseComponent) {
-  return class extends Component {
+  class Pure extends Component {
     constructor(props) {
       super(props);
 
@@ -20,8 +22,13 @@ export default function(BaseComponent) {
     }
 
     render() {
-      const baseComponentProps = { ...this.props, dispatch: this.dispatch };
-      return <BaseComponent {...baseComponentProps}/>;
+      return createElement(BaseComponent, { ...this.props, dispatch: this.dispatch });
     }
   }
+
+  if (process.env.NODE_ENV !== 'production') {
+    Pure.displayName = `pure(${getDisplayName(BaseComponent)})`;
+  }
+
+  return Pure;
 }
